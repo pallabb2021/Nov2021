@@ -1,0 +1,283 @@
+﻿### Settings for BIC-Runtime ###
+
+###------------------###
+### General settings ###
+###------------------###
+
+#Swap Memory (Bytes)
+GLOBAL_SWAPMEMORY=87282000
+
+#Debug mode
+GLOBAL_DEBUG_MODE=off
+
+#Deleting of source file after converting test/real system
+GLOBAL_DELETE_SOURCEFILE_TEST=off
+GLOBAL_DELETE_SOURCEFILE_REAL=on
+
+#enable or disable the source trimming. Default = on
+GENERAL_SOURCE_TRIM=on
+
+# flag that specifies if compare with NaN values should lead to error 1090 or not.
+NAN_LEADS_TO_ERROR=off
+
+#Language for error and warning messages
+#supported values are: de=German, en=English (default), ja=Japanese, zh_CN=Chinese, zh_TW=Traditional Chinese
+ERROR_WARNING_MESSAGE_LANGUAGE=en
+
+# this option disables the logging of error descriptions
+# if 'on' - only error messages are logged and error descriptions are suppressed
+DISABLE_ERROR_DESCRIPTIONS=off
+
+# this option disables the logging of error descriptions
+# if 'on' - only error messages are logged and error descriptions are suppressed
+DISABLE_ERROR_DESCRIPTIONS=off
+
+# this option sets the maximum number of errors/warnings per mapping that
+# are logged and saved for the error mapping.
+# default: 1000
+MAX_NUMBER_OF_ERRORS=1000
+
+###----------------------------###
+### Trace/Warning/Error Levels ###
+###----------------------------###
+
+#
+# trace level < 1 --> all traces are ignored
+# trace level >= 1 --> all traces are written to log file
+#
+GLOBAL_TRACE_LEVEL=5
+
+#WarningLevel: only the warnings with level: (1 <= level <= GLOBAL_WARNING_LEVEL) are logged
+GLOBAL_WARNING_LEVEL=3
+
+#ErrorLevel: only the warnings with level: (1 <= level <= GLOBAL_ERROR_LEVEL) ARE CONSIDERED AS ERRORS !!!
+GLOBAL_ERROR_LEVEL=3
+
+#stop conversion imediatly, if an error occures. --> Use better high ErrorLevel !!!
+GLOBAL_HALTONERRORS=off
+
+
+###----------------------------###
+###        SQL-Settings        ###
+###----------------------------###
+
+# enable sql trace.
+# This setting provides a more detailed debug information at the JDBC level
+# since it logs every single execution of SQL statements
+SQL_TRACE_MODE=off
+
+#If the JDBC driver does not convert the read data to the UNICODE character set, you can set this value to YES.
+#The SQLDocReader will convert the read bytes using the encoding specified with the "setSourceEncoding" command.
+SQL_READER_CONVERT_ENCODING=
+
+#If the JDBC driver does not convert the data to the correct character set before writing to the database, you can set this value to YES.
+#The "SQLDocWriter" will convert the bytes using the encoding specified with the "setDestinationEncoding" command.
+SQL_WRITER_CONVERT_ENCODING=
+
+# should the SQLDocWriter trigger the End of Mesage Type event? the default is "yes".
+SQL_EOT=
+
+# Used only when writting to database. If the value is not "yes" (default is "no") the SQLDocWriter will read the destination table metadata using the jdbc method connection.getMetaData().getColumns().
+# if your jdbc driver does not supports this, you can set the property to "no" and the SQLDocWriter will use an alternative method, it will open the table and will read the metadata from the ResultSet JDBC object.
+SQL_READ_META_DATA=
+
+# Used when writting to database. If "YES" (default) the SQLDocWriter will used the jdbc getColumnDisplaySize() method for reading the size of the destination fields.
+# Set the property to "NO" if your driver does not support such method.
+SQL_READ_FIELD_LENGTH=
+
+# Suppress the error message for lookup duplicates.
+# If on = warning level = 4, if off = level 3, default: off
+SUPPRESS_SQL_LOOKUP_DUPLICATE_ERRORS=OFF
+
+# By default the SQL Writer uses prepared statements
+# If the SQL Writer should use simple statements this option should be set to 'off'
+# Simple statements are requireds e.g. for oracle sequences or other db-function calls that are not supported by the driver
+SQL_PREPARED_STATEMENTS=on
+
+##
+## TLA Compatible mode settings
+##
+
+# name of the trigger table in TLA compatible mode. The default is "SEETRIGGER"
+SQL_SEETRIGGER=
+
+# when writting to database in "TLA compatible" mode. You can set this property to "table" if the M_ID field should be read
+# from a SQLCounter named "M_ID". Otherwise (default) the M_ID will be read as the maximum M_ID value + 1 from the destination table.
+SQL_M_ID=
+
+##
+## SQL Date format configuration: see BIC Documentation, Book 5 Chapter 3
+##
+
+# format of the date to be written to the database. valid values are PASSTHROUGH DMY, MDY, YDM or YMD.
+# Replace M with X, if you want to use the name of the month instead of the number
+SQL_DATE_FORMAT=
+
+# date character separator for dates  to be written to database (default is /)
+SQL_DATE_SEPARATOR=
+
+# time character separator for dates  to be written to database (default is :)
+SQL_TIME_SEPARATOR=
+
+##
+## SQL Counters: see BIC Documentation, Book 5 Chapter 3
+##
+
+# database driver for SQL Counters
+SQLCOUNTERS_DRIVER=
+
+# database user for SQL Counters
+SQLCOUNTERS_USER=
+
+# database user password for SQL Counters
+SQLCOUNTERS_PSW=
+
+#  database url for SQL Counters
+SQLCOUNTERS_URL=
+
+#
+# mapDB command cache settings
+#
+
+# number of elements hold in the dblookup/mapdb cache. Default value is 200.
+DBLOOKUP_CACHE_SIZE=
+
+# time (in minutes) values are hold in the dblookup cache. Default value is 60 (minutes)
+DBLOOKUP_CACHE_EXPIRATION=
+
+# number of different lookup definitions that can be hold in the cache.
+DBLOOKUP_CACHE_POOL_SIZE=
+
+# enable cache of mapdb as default?
+DBLOOKUP_CACHE_DEFAULT=off
+
+# Set the reading mode of database bit-fields
+# if 'on' bit-fields are read as 1/0, else true/false
+READ_DB_BITFIELD_AS_NUMBER=off
+
+###----------------------------###
+###   advanced settings ...    ###
+###----------------------------###
+# Option to allow mappings to reload mapfiles being used while the mapping
+# is till running. If "ON" then a mapping is allowed to do so. If "OFF" then
+# once a mapping opens a mapfile, it will use the loaded values till it
+# finishes though newer mappings may use a newer version of the same
+# mapfile.
+# CAUTION: If you set the value to "OFF" you need to have enough RAM memory
+# to store multiple versions of your mapfiles for every cache reload.
+# There are no internal controls on the RAM memory used. Just make sure the
+# average mapping running time is much shorter than the CACHE_RELOAD_TIME_XXXXX
+# parameters.
+ALLOW_RELOAD_OF_MAPFILES_DURING_MAPPING_RUN=ON
+
+#
+# the cash reloading time when BIC is under load
+# the mapfiles, configuration files and charsets are reloaded
+#
+CACHE_RELOAD_TIME_AT_LOAD=3000000
+
+#
+# the cash reloading time when BIC is not under load
+# the mapfiles, configuration files and charsets are reloaded
+#
+CACHE_RELOAD_TIME_WITHOUT_LOAD=600000
+
+# enables or disables the garbage collector and finalization call
+# within the main thread of the BIC internal thread engine
+THREAD_HANDLER_GARBAGE_COLLECTING=OFF
+
+# if enabled: specifies the number of time in half seconds
+# OR the number of conversions after that the garbage collector and the
+# finalization is called
+THREAD_HANDLER_GARBAGE_COLLECTING_TIME=2000
+
+#
+#performance monitoring
+#
+
+# performance log file creation, set to "ON" or "OFF"
+PERFORMANCE_LOG_CREATION=OFF
+
+# performance log file, specify the log file to create
+PERFORMANCE_LOG_FILE=bic_performance.perf
+
+# specifies if the performance log file should be appended or not.
+PERFORMANCE_LOG_APPEND=OFF
+
+# specifies the new message handling for EDI formats backward compatibility mode setting
+#NEW_MESSAGE_HANDLING_COMPATIBILITY_MODE=OFF
+
+# enables or disables the strong norm syntax check at reading process for
+# AnsiX12, Tradacoms and Edifact
+#SRC_STRONG_NORM_SYNTAX_CHECK=off
+
+# enables or disables the strong norm syntax check at writing process for
+# AnsiX12, Tradacoms and Edifact
+#DEST_STRONG_NORM_SYNTAX_CHECK=off
+
+# If this option is on, all mapFile commands are redirected to mapDb on the standard map tables
+# If both, FORCE_MAPDB_USAGE_FOR_ALL_VERSIONS and FORCE_MAPFILE_LEGACY_MODE_FOR_ALL_VERSIONS are set to on,
+# FORCE_MAPDB_USAGE_FOR_ALL_VERSIONS has the higher priority
+# By default both options are set to off. Then, mapfile commands tries to access the standard tables first.
+# If they are not available, mapfiles are used.
+# FORCE_MAPDB_USAGE_FOR_ALL_VERSIONS=off
+
+# If this option is on, mapFile commands are NOT redirected to mapDb commands
+# If both, FORCE_MAPDB_USAGE_FOR_ALL_VERSIONS and FORCE_MAPFILE_LEGACY_MODE_FOR_ALL_VERSIONS are set to on,
+# FORCE_MAPDB_USAGE_FOR_ALL_VERSIONS has the higher priority
+# By default both options are set to off. Then, mapfile commands tries to access the standard tables first.
+# If they are not available, mapfiles are used.
+# FORCE_MAPFILE_LEGACY_MODE_FOR_ALL_VERSIONS=off
+
+# Setting for Java date format descriptions
+# If on, the Java date format functionality performs a strong validation of format descriptions
+# Default is 'on'
+STRONG_JAVA_DATE_FORMAT_CHECK=on
+
+# the equality threshold, must be between 0.0 and 1.0.
+# If two objects are considered to be equal if at least (threshold * 100) % of the children are equal.
+COMPARE_EQUALITY_THRESHOLD=0.8
+
+# This options modifies the specified warning levels for all mappings.
+# Notation syntax: modifyWarningLevel_<warningID>=<level>
+# The command modifyWarningLevel used in mappings has higher priority.
+# modifyWarningLevel_3612=4
+
+# global flag, if on the content of the UNB:0002 default value (0 and empty string is ignored) and (if mapped) the content of the
+# first destination field UNB:0002 will be evaluated as Edifact syntax version. If this Edifact syntax version
+# is lower than 4, the element group / repetition delimiter ('*') will be disabled by default (set to space).
+# The following configuration hierarchy is applied (the same as for UNA:DELIMITER evaluation, the last found wins)
+#   UNA:DELIMITER default value in message description <<<< UNB:0002 default value in message description
+#    <<<< setDestinationDelimiter command <<<< value of already mapped destination field UNA:DELIMITER
+#    <<<< value of already mapped destination field UNB:0002
+# If off, the behaviour is as in previous versions (backward compatible, this is default):
+# The following configuration hierarchy is applied (the same as for UNA:DELIMITER evaluation, the last found wins)
+#   UNA:DELIMITER default value in message description <<<< setDestinationDelimiter command
+#    <<<< value of already mapped destination field UNA:DELIMITER
+DEST_EDIFACT_SYNTAX_VERSION_DELIMITER_CHECK=OFF
+
+#BAPI connection retry settings: max number of retries
+BAPI_CONNECTION_MAX_RETRIES=5
+
+#BAPI connection retry settings: retry interval in milliseconds
+BAPI_CONNECTION_RETRY_INTERVAL=3000
+
+#BAPI connection pool settings: pool capacity
+BAPI_CONNECTION_POOL_CAPACITY=5
+
+#BAPI connection pool settings: pool max size
+BAPI_CONNECTION_POOL_MAX_SIZE=10
+
+#Set the mapFile default value handling for null values. Default is on
+#If on, the specified default value is returned for null values
+#If off, the null value is handled as empty string
+MAPFILE_DEFAULT_VALUE_HANDLING_FOR_NULL_VALUES=ON
+
+#Set the mapDb default value handling for null values. Default is on
+#If on, the specified default value is returned for null values
+#If off, the null value is handled as empty string
+MAPDB_DEFAULT_VALUE_HANDLING_FOR_NULL_VALUES=ON
+
+# Sets the "selective read on" reading method for XML in a global way
+# default is OFF
+#GLOBAL_XML_SET_SELECTIVE_READ=ON

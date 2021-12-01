@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <node name="locator">
+        <node name="DataSources">
+
+	    <node name="logical-map-tables">
+                <property name="name">DS_MD</property>
+                <property name="driver">org.h2.Driver</property>
+                <property name="env">000</property>
+                <property name="type">JDBC</property>
+                <property name="URL">jdbc:h2:tcp://localhost/h2DataBase</property>
+                <property name="password"/>
+                <property name="user">sa</property>
+            </node>
+
+            <node name="bic-datasource-for-counters-and-variables">
+                <property name="name">DS_PE_RT</property>
+                <property name="driver">org.h2.Driver</property>
+                <property name="env">000</property>
+                <property name="type">JDBC</property>
+                <property name="URL">jdbc:h2:tcp://localhost/h2DataBase</property>
+                <property name="password"/>
+                <property name="user">sa</property>
+            </node>
+
+            <node name="bic-datasource-for-bismt-testsystem">
+                <property name="name">DS_MT</property>
+                <property name="driver">org.h2.Driver</property>
+                <property name="env">000</property>
+                <property name="type">JDBC</property>
+                <property name="URL">jdbc:h2:tcp://localhost/h2DataBase</property>
+                <property name="password"/>
+                <property name="user">sa</property>
+            </node>
+
+            <node name="bic-default-datasource-for-mapfile-redirection">
+                <property name="name">bic_mapvalues_file</property>
+                <property name="driver">filesystem</property>
+                <property name="env">000</property>
+                <property name="type">JDBC</property>
+                <property name="URL">MAPFILE_HANDLER:SRC_COLUMN=1:DEST_COLUMN=3:SEPARATOR:,</property>
+                <property name="password"/>
+                <property name="user">sa</property>
+            </node>            
+
+        </node>
+    </node>
+</config>

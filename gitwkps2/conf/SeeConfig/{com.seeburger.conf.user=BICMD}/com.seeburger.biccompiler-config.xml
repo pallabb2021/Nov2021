@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config>
+    <node name="BICCompilerConfig">
+        <property name="OldStyleUserFunctionsLoading" type="java.lang.Boolean">false</property>
+    </node>
+    <node name="TypeVerifierConfig">
+        <property name="StrictArrayParamCheck" type="java.lang.Boolean">true</property>
+    </node>
+</config>

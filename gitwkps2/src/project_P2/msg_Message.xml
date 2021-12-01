@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><message version="6.2">
+ <name>Message</name>
+ <kind>11</kind>
+ <record>
+  <name>RECORD</name>
+  <min>0</min>
+  <max>1</max>
+  <option>0</option>
+  <field>
+   <name>FIELD</name>
+   <min>0</min>
+   <max>1</max>
+   <regularExpression/>
+   <type>5</type>
+   <minLength>0</minLength>
+   <maxLength>-1</maxLength>
+   <option>0</option>
+  </field>
+ </record>
+</message>

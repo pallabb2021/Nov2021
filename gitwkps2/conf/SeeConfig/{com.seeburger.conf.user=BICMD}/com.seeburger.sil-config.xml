@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- DEFAULT/STANDARD CLIENT CONFIGURATION FOR STANDALONE (BIDMD) -->
+
+<config xmlns="http://uri.seeburger.com/sil/config/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<node name="common">
+		<!--
+		Setting SILSERVER to "(none)" indicates the SIL-client to be INACTIVE (client will NOT
+		try to communicate with a SIL server.
+		To enable the submission of elements, change this to a valid SILSERVER IP address or hostname.
+
+		If "(auto)" the system will try to detect the first reachable SIL server by utilizing
+		Seeburger Landscape services.
+		-->
+		<property name="SILSERVER">(none)</property>
+		<property name="PortOffset">0</property>
+		<property name="SubmitTimeout">30000</property>
+		<property name="SubmitRegisterTimeout">30000</property>
+		<property name="SystemQueryBaseTimeout">10000</property>
+		<property name="ConnectMaxRetryCount">3</property>
+		<property name="ConnectRetryFrequency">15 seconds</property>
+	</node>
+	<node name="sscp">
+		<property name="UseDiscovery">false</property>
+		<property name="Host">[sil.server.host]</property>
+		<property name="Port">20001[+PortOffset]</property>
+		<property name="Debug">false</property>
+		<property name="Enabled">true</property>
+		<property name="Timeout">3000</property>
+		<property name="ConnectionCount">3</property>
+	</node>
+	<node name="dpa">
+		<node name="client">
+			<node name="silRawDpa">
+				<property name="UseDiscovery">false</property>
+				<property name="Host">[sil.server.host]</property>
+				<property name="Port">9988[+PortOffset]</property>
+				<property name="SyncHost">[sil.server.host]</property>
+				<property name="SyncPort">19988[+PortOffset]</property>
+				<property name="ConnectionCount">50</property>
+				<property name="SyncConnectionCount">20</property>
+				<property name="MaxIdleTime">10 minutes</property>
+				<property name="Timeout">3000</property>
+			</node>
+		</node>
+	</node>
+	<node name="dca">
+		<node name="client">
+			<node name="silRawDca">
+				<property name="UseDiscovery">false</property>
+				<property name="Port">9989[+PortOffset]</property>
+				<property name="Host">[sil.server.host]</property>
+				<property name="Timeout">90000</property>
+				<property name="ConnectionCount">15</property>
+				<property name="MaxIdleTime">10 minutes</property>
+				<property name="ServiceConnectionCount">20</property>
+			</node>
+		</node>
+	</node>
+	<node name="eca">
+		<node name="client">
+			<node name="silRawEca">
+				<property name="UseDiscovery">false</property>
+				<property name="Host">[sil.server.host]</property>
+				<property name="Port">9941[+PortOffset]</property>
+				<property name="AlternatePorts">9942,9943,9944,9945,9946,9947,9948,9949</property>
+				<property name="ServerHost">[sil.server.host]</property>
+				<property name="ServerPort">9940</property>
+				<property name="ConnectTimeout">3000</property>
+				<property name="Timeout">1000</property>
+				<property name="MaxListenerCount">100</property>
+			</node>
+		</node>
+	</node>
+</config>

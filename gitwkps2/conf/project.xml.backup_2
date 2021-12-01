@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><client version="6.0" name="gitwkps2">
+ <messageProfiles/>
+ <globalProcedures/>
+ <project name="P2">
+  <messages>
+   <messagtype name="ansix12"/>
+   <messagtype name="edifact"/>
+   <messagtype name="aecma"/>
+   <messagtype name="inhouse"/>
+   <messagtype name="tradacom"/>
+   <messagtype name="csv"/>
+   <messagtype name="swift"/>
+   <messagtype name="xml"/>
+   <messagtype name="sql"/>
+   <messagtype name="hwsw"/>
+   <messagtype name="eiaj"/>
+   <messagtype name="hl7"/>
+   <messagtype name="NoFormat">
+    <message name="No_Message"/>
+   </messagtype>
+  </messages>
+  <mappings/>
+ </project>
+</client>

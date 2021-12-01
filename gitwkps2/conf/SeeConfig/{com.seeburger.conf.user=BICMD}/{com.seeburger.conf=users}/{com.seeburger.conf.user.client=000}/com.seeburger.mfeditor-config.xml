@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<config>
+    <node name="default">
+        <node name="MapDBEditor">
+            <node name="Profiles">
+                <node name="CountersAndVariables">
+                    <property name="User">sa</property>
+                    <property name="Category">OTHER</property>
+                    <property name="Password"/>
+                    <property name="DataSourceName">DS_PE_RT</property>
+                    <node name="TPERMCOUNTERS"/>
+                    <node name="TPERMVARIABLES"/>
+                </node>
+                <node name="BISMT">
+                    <property name="User">sa</property>
+                    <property name="Category">OTHER</property>
+                    <property name="Password"/>
+                    <property name="DataSourceName">DS_MT</property>
+                    <node name="TBISMT_WORKFLOW"/>
+                    <node name="TBISMT_DOCUMENTS"/>
+                    <node name="TBISMT_DOCUMENTS2"/>
+                </node>
+                <node name="BIC_MapValues">
+                    <property name="User">sa</property>
+                    <property name="Category">OTHER</property>
+                    <property name="Password"/>
+                    <property name="DataSourceName">bic_mapvalues</property>
+                    <node name="BIC_MAPVALUES"/>
+                </node>
+            </node>
+        </node>
+    </node>
+</config>
